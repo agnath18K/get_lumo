@@ -3,16 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import CodeBlock from '../components/CodeBlock.astro';
 import CTA from '../components/CTA.astro';
 
-const sourceInstall = `# Clone the Lumo repository from GitHub
+const sourceInstall = `# From source
 git clone https://github.com/agnath18K/lumo_cli.git
-
-# Navigate into the cloned repository
 cd lumo_cli
-
-# Build the binary
 make build
-
-# Install the binary
 sudo make install
 
 # Verify the installation
@@ -57,35 +51,12 @@ lumo "Hello, how does the grep command work?"`;
 
       <div class="max-w-3xl mx-auto space-y-16">
         <div class="space-y-8">
-          <h2 class="text-3xl font-bold">System Requirements</h2>
-          <div class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg border border-gray-200 dark:border-gray-800">
-            <ul class="list-disc list-inside space-y-4 text-gray-600 dark:text-gray-400">
-              <li>
-                <strong>Operating System:</strong> Linux (Ubuntu, Debian, CentOS, etc.) or macOS. Windows users can use WSL (Windows Subsystem for Linux).
-              </li>
-              <li>
-                <strong>Go Version:</strong> Go 1.22 or higher (for source installation)
-              </li>
-              <li>
-                <strong>Disk Space:</strong> Approximately 20MB for the binary and dependencies
-              </li>
-              <li>
-                <strong>Internet Connection:</strong> Required for API access to AI providers
-              </li>
-              <li>
-                <strong>API Keys:</strong> Google Gemini or OpenAI API key (obtained during setup)
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="space-y-8">
           <h2 class="text-3xl font-bold">Installation Methods</h2>
 
           <div class="space-y-4">
             <h3 class="text-2xl font-bold">Method 1: Install from Source</h3>
             <p class="text-gray-600 dark:text-gray-400">
-              The recommended way to install Lumo CLI is by building from source:
+              Building from source ensures you have the latest features and improvements:
             </p>
             <CodeBlock code={sourceInstall} language="bash" />
           </div>
@@ -93,7 +64,7 @@ lumo "Hello, how does the grep command work?"`;
           <div class="space-y-4">
             <h3 class="text-2xl font-bold">Method 2: Using Pre-built Binaries</h3>
             <p class="text-gray-600 dark:text-gray-400">
-              If you prefer not to build from source, you can download pre-built binaries:
+              The recommended quick approach is to use pre-built binaries for your platform:
             </p>
             <CodeBlock code={binaryInstall} language="bash" />
           </div>

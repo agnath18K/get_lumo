@@ -3,8 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import CodeBlock from '../components/CodeBlock.astro';
 import CTA from '../components/CTA.astro';
 
-const basicUsage = `
-# Get help with command-line options
+const basicUsage = `# Get help with command-line options
 lumo --help
 
 # Ask how to perform a specific task
@@ -19,8 +18,7 @@ lumo "What's the difference between TCP and UDP?"
 # Show version information
 lumo --version`;
 
-const agentMode = `
-# Create a backup of documents
+const agentMode = `# Create a backup of documents
 lumo auto:create a backup of my documents folder
 
 # Find and analyze large files
@@ -32,8 +30,7 @@ lumo agent:set up a python virtual environment with flask and sqlalchemy
 # Monitor system resources
 lumo agent:monitor CPU and memory usage every 5 seconds`;
 
-const chatMode = `
-# Start interactive chat mode
+const chatMode = `# Start interactive chat mode
 lumo chat
 
 # Ask a direct question in chat format
@@ -42,8 +39,7 @@ lumo chat:Tell me about Linux file permissions
 # Ask a specific question
 lumo ask:What is the capital of France?`;
 
-const systemCommands = `
-# Get a basic health report
+const systemCommands = `# Get a basic health report
 lumo health
 
 # Get a detailed system report
@@ -60,8 +56,7 @@ lumo report:performance
 lumo report:security
 lumo report:storage`;
 
-const pipeSupport = `
-# Analyze directory contents
+const pipeSupport = `# Analyze directory contents
 ls -la | lumo
 
 # Explain error logs
