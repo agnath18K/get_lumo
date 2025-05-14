@@ -1,5 +1,6 @@
 ---
 import CodeBlock from './CodeBlock.astro';
+import { FaLinux, FaApple, FaWindows } from 'react-icons/fa6';
 
 const sourceInstall = `# From source
 git clone https://github.com/agnath18K/lumo_cli.git
@@ -23,10 +24,9 @@ sudo dpkg -i lumo.deb
 lumo --version`;
 
 const platforms = [
-  { name: "Linux", icon: 'CommandLineIcon', supported: true },
-  { name: "macOS", icon: 'CommandLineIcon', supported: true },
-  { name: "Windows (WSL)", icon: 'WindowIcon', supported: true },
-  { name: "Windows (native)", icon: 'WindowIcon', supported: false, note: "Coming soon" },
+  { name: "Linux", icon: FaLinux, supported: true },
+  { name: "macOS", icon: FaApple, supported: true },
+  { name: "Windows", icon: FaWindows, supported: true },
 ];
 ---
 
@@ -50,17 +50,7 @@ const platforms = [
           {platforms.map(platform => (
             <div class="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
               <div class="mb-2 text-primary-500">
-                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  {platform.name.includes('Linux') && (
-                    <path d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3" />
-                  )}
-                  {platform.name.includes('macOS') && (
-                    <path d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3" />
-                  )}
-                  {platform.name.includes('Windows') && (
-                    <path d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-8.25zM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-2.25z" />
-                  )}
-                </svg>
+                <platform.icon className="w-8 h-8" />
               </div>
               <div class="font-medium">{platform.name}</div>
               <div class={`text-xs mt-1 px-2 py-0.5 rounded-full ${platform.supported ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400' : 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400'}`}>
@@ -74,19 +64,19 @@ const platforms = [
 
     <div class="max-w-3xl mx-auto">
       <!-- Installation Tabs -->
-      <div class="mb-8 flex justify-center" x-data="{ activeTab: 'source' }">
+      <div class="mb-8 flex justify-center" x-data="{ activeTab: 'binary' }">
         <div class="inline-flex rounded-md shadow-sm bg-gray-100 dark:bg-gray-800 p-1">
           <button
-            class="px-4 py-2 text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 source-tab active"
-            onclick="document.querySelector('.source-tab').classList.add('bg-white', 'dark:bg-gray-900', 'text-gray-900', 'dark:text-gray-100', 'shadow-sm'); document.querySelector('.binary-tab').classList.remove('bg-white', 'dark:bg-gray-900', 'text-gray-900', 'dark:text-gray-100', 'shadow-sm'); document.querySelector('.source-content').classList.remove('hidden'); document.querySelector('.binary-content').classList.add('hidden');"
-          >
-            From Source
-          </button>
-          <button
-            class="px-4 py-2 text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 binary-tab"
+            class="px-4 py-2 text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 binary-tab active"
             onclick="document.querySelector('.binary-tab').classList.add('bg-white', 'dark:bg-gray-900', 'text-gray-900', 'dark:text-gray-100', 'shadow-sm'); document.querySelector('.source-tab').classList.remove('bg-white', 'dark:bg-gray-900', 'text-gray-900', 'dark:text-gray-100', 'shadow-sm'); document.querySelector('.binary-content').classList.remove('hidden'); document.querySelector('.source-content').classList.add('hidden');"
           >
             Pre-built Binary
+          </button>
+          <button
+            class="px-4 py-2 text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 source-tab"
+            onclick="document.querySelector('.source-tab').classList.add('bg-white', 'dark:bg-gray-900', 'text-gray-900', 'dark:text-gray-100', 'shadow-sm'); document.querySelector('.binary-tab').classList.remove('bg-white', 'dark:bg-gray-900', 'text-gray-900', 'dark:text-gray-100', 'shadow-sm'); document.querySelector('.source-content').classList.remove('hidden'); document.querySelector('.binary-content').classList.add('hidden');"
+          >
+            From Source
           </button>
         </div>
       </div>
