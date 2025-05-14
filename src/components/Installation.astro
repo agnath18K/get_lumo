@@ -157,6 +157,9 @@ const platforms = [
 <script>
   // Initialize the source tab as active
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.source-tab').classList.add('bg-white', 'dark:bg-gray-900', 'text-gray-900', 'dark:text-gray-100', 'shadow-sm');
+    const sourceTab = document.querySelector('.source-tab');
+    if (sourceTab) {
+      sourceTab.classList.add('bg-white', 'dark:bg-gray-900', 'text-gray-900', 'dark:text-gray-100', 'shadow-sm');
+    }
   });
 </script>
