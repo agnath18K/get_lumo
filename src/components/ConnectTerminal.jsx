@@ -127,7 +127,7 @@ export default function ConnectTerminal({
     logAnalyticsEvent('connect_files_added', {
       count: selectedFiles.length,
       total_size: selectedFiles.reduce((sum, file) => sum + file.size, 0)
-    });
+    }).catch(() => {});
   };
 
   // Simulate file transfer
@@ -180,7 +180,7 @@ export default function ConnectTerminal({
 
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       addSelectedFiles(Array.from(e.dataTransfer.files));
-      logAnalyticsEvent('connect_select_files', { method: 'drag_drop' });
+      logAnalyticsEvent('connect_select_files', { method: 'drag_drop' }).catch(() => {});
     }
   };
 
