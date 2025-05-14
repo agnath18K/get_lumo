@@ -5,7 +5,7 @@
   <a href="https://getlumo.dev"><b>getlumo.dev</b></a>
 
   <p>
-    <img src="https://img.shields.io/badge/version-1.0.0-blue.svg" alt="Version 1.0.0">
+    <img src="https://img.shields.io/badge/version-1.0.1-blue.svg" alt="Version 1.0.1">
     <img src="https://img.shields.io/badge/go-%3E%3D1.22-00ADD8.svg" alt="Go Version">
     <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License MIT">
   </p>

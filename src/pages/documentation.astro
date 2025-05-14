@@ -67,6 +67,24 @@ ps aux | grep python | lumo
 
 # Analyze system information
 dmesg | lumo`;
+
+const connectFeature = `# Start a server to receive files
+lumo connect --receive
+
+# Start a server on a specific port
+lumo connect --receive --port 9000
+
+# Save received files to a specific directory
+lumo connect --receive --path /tmp
+
+# Connect to a peer at 192.168.1.5:8080
+lumo connect 192.168.1.5
+
+# Connect to a peer on a specific port
+lumo connect 192.168.1.5:9000
+
+# Connect and save files to a specific directory
+lumo connect 192.168.1.5 --path /tmp`;
 ---
 
 <Layout title="Lumo CLI Documentation - AI-Powered Terminal Assistant" description="Documentation and usage examples for Lumo CLI, the intelligent terminal assistant that helps you navigate the command line with natural language.">
@@ -87,6 +105,7 @@ dmesg | lumo`;
               <a href="#agent-mode" class="block py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">Terminal Agent Mode</a>
               <a href="#chat-mode" class="block py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">Chat Mode</a>
               <a href="#system-commands" class="block py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">System Commands</a>
+              <a href="#connect-feature" class="block py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">File Transfer</a>
               <a href="#pipe-support" class="block py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">Pipe Support</a>
               <a href="#configuration" class="block py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">Configuration</a>
             </nav>
@@ -142,6 +161,31 @@ dmesg | lumo`;
                 Lumo CLI provides built-in commands for checking system health and generating reports.
               </p>
               <CodeBlock code={systemCommands} language="bash" />
+            </section>
+
+            <section id="connect-feature" class="space-y-6">
+              <h2 class="text-3xl font-bold">File Transfer</h2>
+              <p class="text-gray-600 dark:text-gray-400">
+                Lumo Connect enables seamless file transfer between computers on your local network with a simple, intuitive interface.
+              </p>
+              <div class="bg-primary-50 dark:bg-primary-900/20 p-4 rounded-lg border border-primary-200 dark:border-primary-800/30 mb-4">
+                <p class="text-sm text-primary-800 dark:text-primary-300">
+                  <strong>Tip:</strong> Both sides can send and receive files simultaneously. Drag and drop files into the terminal to send them, or type 'select' to open a file browser.
+                </p>
+              </div>
+              <CodeBlock code={connectFeature} language="bash" />
+
+              <div class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+                <h3 class="text-xl font-bold mb-4">Lumo Connect Features</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-400">
+                  <li><strong>Duplex File Transfer:</strong> Send and receive files simultaneously between connected peers</li>
+                  <li><strong>Simple Server Mode:</strong> Start a server with one command to receive files from any peer</li>
+                  <li><strong>Easy Client Connection:</strong> Connect to any peer by specifying their IP address</li>
+                  <li><strong>Drag & Drop Support:</strong> Simply drag files into the terminal to send them instantly</li>
+                  <li><strong>File Browser Integration:</strong> Type 'select' to open a file browser for selecting files</li>
+                  <li><strong>Custom Save Location:</strong> Specify where to save received files with the --path option</li>
+                </ul>
+              </div>
             </section>
 
             <section id="pipe-support" class="space-y-6">

@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FirebaseAnalytics from '../components/FirebaseAnalytics.astro';
 
 interface Props {
 	title?: string;
@@ -46,6 +47,7 @@ const {
 			<slot />
 		</main>
 		{showFooter && <Footer />}
+		<FirebaseAnalytics />
 	</body>
 </html>
 
