@@ -20,9 +20,7 @@ const { code, language = 'bash', title } = Astro.props;
     </div>
   )}
   <div class="relative">
-    <pre class="bg-terminal-dark text-terminal-light p-5 overflow-x-auto text-sm font-mono">
-      <code class={`language-${language}`}>{code.trim()}</code>
-    </pre>
+    <pre class="bg-terminal-dark text-terminal-light p-5 overflow-x-auto text-sm font-mono"><code class={`language-${language}`}>{code.trim()}</code></pre>
 
     <!-- Copy button -->
     <button class="copy-button absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-gray-300 hover:text-white rounded p-1.5 opacity-0 transition-opacity duration-200 focus:opacity-100" data-code={code.trim()} aria-label="Copy to clipboard">
