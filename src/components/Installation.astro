@@ -46,7 +46,7 @@ const platforms = [
     <div class="max-w-3xl mx-auto mb-12">
       <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6 shadow-sm">
         <h3 class="text-xl font-bold mb-4">Platform Support</h3>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
           {platforms.map(platform => (
             <div class="flex flex-col items-center text-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
               <div class="mb-2 text-primary-500">
@@ -81,8 +81,30 @@ const platforms = [
         </div>
       </div>
 
+      <!-- Binary Installation -->
+      <div class="binary-content space-y-6 animate-fade-in">
+        <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm">
+          <div class="p-6 space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-md bg-gradient-to-br from-secondary-400 to-secondary-600 flex items-center justify-center text-white text-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">Using Pre-built Binaries</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                  The recommended quick approach is to use pre-built binaries for your platform.
+                </p>
+              </div>
+            </div>
+            <CodeBlock code={binaryInstall} language="bash" />
+          </div>
+        </div>
+      </div>
+
       <!-- Source Installation -->
-      <div class="source-content space-y-6 animate-fade-in">
+      <div class="source-content space-y-6 animate-fade-in hidden">
         <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm">
           <div class="p-6 space-y-4">
             <div class="flex items-start gap-4">
@@ -112,38 +134,21 @@ const platforms = [
           </div>
         </div>
       </div>
-
-      <!-- Binary Installation -->
-      <div class="binary-content space-y-6 animate-fade-in hidden">
-        <div class="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm">
-          <div class="p-6 space-y-4">
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-md bg-gradient-to-br from-secondary-400 to-secondary-600 flex items-center justify-center text-white text-xl">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold">Using Pre-built Binaries</h3>
-                <p class="text-gray-600 dark:text-gray-400">
-                  The recommended quick approach is to use pre-built binaries for your platform.
-                </p>
-              </div>
-            </div>
-            <CodeBlock code={binaryInstall} language="bash" />
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
 <script>
-  // Initialize the source tab as active
+  // Initialize the binary tab as active
   document.addEventListener('DOMContentLoaded', () => {
-    const sourceTab = document.querySelector('.source-tab');
-    if (sourceTab) {
-      sourceTab.classList.add('bg-white', 'dark:bg-gray-900', 'text-gray-900', 'dark:text-gray-100', 'shadow-sm');
+    const binaryTab = document.querySelector('.binary-tab');
+    if (binaryTab) {
+      binaryTab.classList.add('bg-white', 'dark:bg-gray-900', 'text-gray-900', 'dark:text-gray-100', 'shadow-sm');
     }
+    // Show binary content, hide source content
+    const binaryContent = document.querySelector('.binary-content');
+    const sourceContent = document.querySelector('.source-content');
+    if (binaryContent) binaryContent.classList.remove('hidden');
+    if (sourceContent) sourceContent.classList.add('hidden');
   });
 </script>
